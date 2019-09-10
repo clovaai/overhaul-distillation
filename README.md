@@ -16,7 +16,7 @@ Seoul National University
 - scipy
 
 ## Updates
-***5 Sep 2019*** Initial upload
+***10 Sep 2019*** Initial upload
 
 ## CIFAR-100
 
