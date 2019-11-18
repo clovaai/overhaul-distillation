@@ -24,6 +24,9 @@ We used pre-trained model in [pytorch-deeplab-xception](https://github.com/jfzha
 
 ### Training
 
+- First, move to segmentation folder : ```cd Segmentation```
+- Next, configure your dataset path on ```Segmentation/mypath.py```
+
 - Without distillation
   - ResNet 18
   ```shell script
