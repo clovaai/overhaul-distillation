@@ -17,6 +17,7 @@ Seoul National University
 
 ## Updates
 ***19 Nov 2019*** Segmentation released
+
 ***10 Sep 2019*** Initial upload
 
 ## CIFAR-100
