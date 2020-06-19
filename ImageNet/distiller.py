@@ -7,10 +7,10 @@ import scipy
 import math
 
 def distillation_loss(source, target, margin):
-    loss = ((source - margin)**2 * ((source > margin) & (target <= margin)).float() +
-            (source - target)**2 * ((source > target) & (target > margin) & (target <= 0)).float() +
-            (source - target)**2 * (target > 0).float())
-    return torch.abs(loss).sum()
+    target = torch.max(target, margin)
+    loss = torch.nn.functional.mse_loss(source, target, reduction="none")
+    loss = torch.masked_select(loss, (source > target) | (target > 0))
+    return loss.sum()
 
 def build_feature_connector(t_channel, s_channel):
     C = [nn.Conv2d(s_channel, t_channel, kernel_size=1, stride=1, padding=0, bias=False),
