@@ -9,7 +9,7 @@ import math
 def distillation_loss(source, target, margin):
     target = torch.max(target, margin)
     loss = torch.nn.functional.mse_loss(source, target, reduction="none")
-    loss = torch.masked_select(loss, (source > target) | (target > 0))
+    loss = loss * ((source > target) | (target > 0)).float()
     return loss.sum()
 
 def build_feature_connector(t_channel, s_channel):
